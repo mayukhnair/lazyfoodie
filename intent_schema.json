@@ -1,0 +1,260 @@
+{
+  "intents": [
+    {
+      "name": "AMAZON.CancelIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.HelpIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.StopIntent",
+      "samples": []
+    },
+    {
+      "name": "getCuisines",
+      "samples": [
+        "{name} at {place} cuisines",
+        "{name} at {place} cuisine",
+        "What does {name} at {place} serve",
+        "What cuisine does {name} at {place} serve",
+        "What cuisine does {name} at {place} specialize in",
+        "What is the speciality of {name} at {place} ",
+        "cuisine served by {name} at {place} ",
+        "what cuisine does {name} in {place} specialize in",
+        "what cuisine does {name} in {place} serve",
+        "{name} in {place} cuisine",
+        "what is the speciality of {name} in {place} "
+      ],
+      "slots": [
+        {
+          "name": "name",
+          "type": "AMAZON.FoodEstablishment",
+          "samples": [
+            "{name} "
+          ]
+        },
+        {
+          "name": "place",
+          "type": "AMAZON.AdministrativeArea",
+          "samples": [
+            "{place} "
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getMealEst",
+      "samples": [
+        "{name} cost",
+        "estimate for {name} at {place} ",
+        "cost estimate for {name} at {place} ",
+        "estimated cost for {name} at {place} ",
+        "How much does it cost at {name}",
+        "How much does it usually cost at {name} in {place} ",
+        "{name} at {place} meal cost",
+        "{name} at {place} meal for two cost",
+        "How much would a meal at {name} in {place} cost",
+        "How costly is {name} at {place} ",
+        "How expensive is {name} at {place} ",
+        "the cost for two at {name} in {place} ",
+        "cost for two at {name} at {place} "
+      ],
+      "slots": [
+        {
+          "name": "name",
+          "type": "AMAZON.FoodEstablishment",
+          "samples": [
+            "{name} "
+          ]
+        },
+        {
+          "name": "place",
+          "type": "AMAZON.AdministrativeArea",
+          "samples": [
+            "{place} "
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getRating",
+      "samples": [
+        "score for {name} at {place} ",
+        "How is {name} at {place} ",
+        "What's the rating for {name} at {place} ",
+        "How popular is {name} at {place} ",
+        "How good is {name} at {place} ",
+        "Is {name} at {place} good",
+        "Is {name} at {place} worth eating at",
+        "if {name} at {place} is good",
+        "rating for {name} in {place} "
+      ],
+      "slots": [
+        {
+          "name": "name",
+          "type": "AMAZON.FoodEstablishment",
+          "samples": [
+            "{name} "
+          ]
+        },
+        {
+          "name": "place",
+          "type": "AMAZON.AdministrativeArea",
+          "samples": [
+            "{place} "
+          ]
+        }
+      ]
+    }
+  ],
+  "prompts": [
+    {
+      "id": "Elicit.Intent-getCuisines.IntentSlot-name",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "What is the name of the restaurant?"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-getCuisines.IntentSlot-place",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "Where is this restaurant located?"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-getMealEst.IntentSlot-name",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "What is the name of the restaurant?"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-getMealEst.IntentSlot-place",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "Where is this restaurant located?"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-getRating.IntentSlot-name",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "What is the name of the restaurant?"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-getRating.IntentSlot-place",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "Where is this restaurant located?"
+        }
+      ]
+    }
+  ],
+  "dialog": {
+    "version": "1.0",
+    "intents": [
+      {
+        "name": "getCuisines",
+        "confirmationRequired": false,
+        "prompts": {},
+        "slots": [
+          {
+            "name": "name",
+            "type": "AMAZON.FoodEstablishment",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicit": "Elicit.Intent-getCuisines.IntentSlot-name"
+            }
+          },
+          {
+            "name": "place",
+            "type": "AMAZON.AdministrativeArea",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicit": "Elicit.Intent-getCuisines.IntentSlot-place"
+            }
+          }
+        ]
+      },
+      {
+        "name": "getMealEst",
+        "confirmationRequired": false,
+        "prompts": {},
+        "slots": [
+          {
+            "name": "name",
+            "type": "AMAZON.FoodEstablishment",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicit": "Elicit.Intent-getMealEst.IntentSlot-name"
+            }
+          },
+          {
+            "name": "place",
+            "type": "AMAZON.AdministrativeArea",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicit": "Elicit.Intent-getMealEst.IntentSlot-place"
+            }
+          }
+        ]
+      },
+      {
+        "name": "getRating",
+        "confirmationRequired": false,
+        "prompts": {},
+        "slots": [
+          {
+            "name": "name",
+            "type": "AMAZON.FoodEstablishment",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicit": "Elicit.Intent-getRating.IntentSlot-name"
+            }
+          },
+          {
+            "name": "place",
+            "type": "AMAZON.AdministrativeArea",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicit": "Elicit.Intent-getRating.IntentSlot-place"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

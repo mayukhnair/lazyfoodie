@@ -1,0 +1,9 @@
+getCuisines what is the speciality of {name} in {place} 
+getCuisines what cuisine does {name} in {place} serve
+getCuisines What cuisine does {name} at {place} serve
+getMealEst How costly is {name} at {place} 
+getMealEst How much would a meal at {name} in {place} cost
+getMealEst the cost for two at {name} in {place} 
+getRating How good is {name} at {place} 
+getRating What's the rating for {name} at {place} 
+getRating How popular is {name} at {place} 
